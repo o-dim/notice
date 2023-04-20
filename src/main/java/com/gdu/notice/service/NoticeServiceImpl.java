@@ -44,12 +44,7 @@ public class NoticeServiceImpl implements NoticeService {
 	// 파라미터 notice_no, gubun, title, content 값을 가진 NoticeDTO 객체를 이용하여 notice 테이블을 수정하고, 수정 결과를 반환하시오.
 	@Override
 	public int modifyNotice(HttpServletRequest request) {
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNotice_no(Integer.parseInt(request.getParameter("notice_no")));
-		noticeDTO.setGubun(Integer.parseInt(request.getParameter("gubun")));
-		noticeDTO.setTitle(request.getParameter("title"));
-		noticeDTO.setContent(request.getParameter("content"));
-		return noticeDAO.modifyNotice(noticeDTO);
+		return noticeDAO.addNotice(new NoticeDTO());
 	}
 
 	// 파라미터 notice_no가 전달되지 않았다면 notice_no=0을 사용하여 notice 테이블에서 삭제하고, 삭제 결과를 반환하시오.
